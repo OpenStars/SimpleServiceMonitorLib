@@ -1,4 +1,4 @@
-module gitlab.123xe.vn/OpenPlatform/SimpleServiceMonitorLib
+module github.com/openstars/SimpleServiceMonitorLib
 
 go 1.12
 

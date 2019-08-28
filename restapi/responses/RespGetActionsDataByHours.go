@@ -1,6 +1,6 @@
 package responses
 import (
-	"gitlab.123xe.vn/OpenPlatform/SimpleServiceMonitorLib/models"
+	"github.com/openstars/SimpleServiceMonitorLib/models"
 )
 
 

@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-	"gitlab.123xe.vn/OpenPlatform/SimpleServiceMonitorLib/models"
+	"github.com/openstars/SimpleServiceMonitorLib/models"
 )
 
 // Operations about Users
