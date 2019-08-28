@@ -1,10 +1,10 @@
 package responses
 import (
-	"github.com/openstars/SimpleServiceMonitorLib/models"
+	"github.com/openstars/SimpleServiceMonitorLib/models/data"
 )
 
 
 
 type ActionsDataByHours struct {
-	HourData   [24]models.SecondStat `json:"hourlydata"` // reset hàng ngày 
+	HourData   map[string] [24]data.SecondStat `json:"hourlydata"` // reset hàng ngày 
 }

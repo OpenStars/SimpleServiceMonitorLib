@@ -1,0 +1,92 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "API for tracking web request and internal action performance",
+        "description": "This is sample for fast tracking api performance. Opensource by TrustKeys Network., 2019",
+        "version": "1.0.0",
+        "termsOfService": "https://trustkeys.network",
+        "contact": {
+            "email": "thanhnt@sonek.vn"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/commonservice/stats/getactions": {
+            "get": {
+                "tags": [
+                    "commonservice/stats"
+                ],
+                "description": "Get total action names",
+                "operationId": "StatAPIController.GetListActions",
+                "responses": {
+                    "200": {
+                        "description": "{json} \t[]string"
+                    }
+                }
+            }
+        },
+        "/commonservice/stats/getrequests": {
+            "get": {
+                "tags": [
+                    "commonservice/stats"
+                ],
+                "description": "Get total request names",
+                "operationId": "StatAPIController.GetListRequests",
+                "responses": {
+                    "200": {
+                        "description": "{json} \t[]string"
+                    }
+                }
+            }
+        },
+        "/commonservice/stats/totalactionshourly": {
+            "get": {
+                "tags": [
+                    "commonservice/stats"
+                ],
+                "description": "Get total hourly action data",
+                "operationId": "StatAPIController.GetActionsDataByHours",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/.ActionsDataByHours"
+                        }
+                    }
+                }
+            }
+        },
+        "/commonservice/stats/totalrequestshourly": {
+            "get": {
+                "tags": [
+                    "commonservice/stats"
+                ],
+                "description": "Get total hourly action data",
+                "operationId": "StatAPIController.GetRequestDataByHour",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/.ActionsDataByHours"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        ".ActionsDataByHours": {
+            "type": "object"
+        }
+    },
+    "tags": [
+        {
+            "name": "commonservice/stats",
+            "description": "Operations about Users\n"
+        }
+    ]
+}

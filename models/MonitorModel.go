@@ -1,8 +1,9 @@
 package models
 import (
 	"time"
-	// "fmt"
+	"fmt"
 	"sync"
+	"github.com/openstars/SimpleServiceMonitorLib/models/data"
 )
 
 var (
@@ -23,6 +24,8 @@ type MonitorModel struct {
 	LastTime time.Time;
 
 }
+
+type DayStat = data.DayStat
 
 func NewMonitorModel() *MonitorModel{
 	return &MonitorModel{
@@ -68,8 +71,8 @@ func (md *MonitorModel) LogAction(actionName string, runTime time.Duration ){
 	actionStat.MinuteData[currentMinsInday].TotalCount ++;
 	actionStat.MinuteData[currentMinsInday].TotalTime += runTime;
 
-	actionStat.MinuteData[currentHour].TotalCount ++;
-	actionStat.MinuteData[currentHour].TotalTime += runTime;
+	actionStat.HourData[currentHour].TotalCount ++;
+	actionStat.HourData[currentHour].TotalTime += runTime;
 	actionStat.WholeDay.TotalCount ++;
 	actionStat.WholeDay.TotalTime += runTime;
 }
@@ -90,8 +93,8 @@ func (md *MonitorModel) LogRequest(requestName string, runTime time.Duration){
 	actionStat.MinuteData[currentMinsInday].TotalCount ++;
 	actionStat.MinuteData[currentMinsInday].TotalTime += runTime;
 
-	actionStat.MinuteData[currentHour].TotalCount ++;
-	actionStat.MinuteData[currentHour].TotalTime += runTime;
+	actionStat.HourData[currentHour].TotalCount ++;
+	actionStat.HourData[currentHour].TotalTime += runTime;
 	actionStat.WholeDay.TotalCount ++;
 	actionStat.WholeDay.TotalTime += runTime;
 
@@ -116,6 +119,7 @@ func (md *MonitorModel) StartRequest(reqName string) MonitorCheckpoint{
 
 
 func (md *MonitorModel) FinishRequest(cp MonitorCheckpoint){
+	fmt.Println("Finish Request ", cp);
 	md.LogRequest(cp.Name, time.Since(cp.StartTime) )
 }
 
